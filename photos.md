@@ -1,0 +1,10 @@
+---
+layout: default
+order: 3
+title: Photos
+permalink: /photos/
+---
+
+# ![{{ site.title }}]({{ site.logo.title_tiny}})
+
+## Photos for {{ site.title }} is in the works, please find us on [twitter](https://twitter.com/ska5280) for more information!
