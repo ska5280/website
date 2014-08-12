@@ -1,0 +1,17 @@
+# Site settings
+title: Ska 5280
+logo:
+  header: /img/logo_small_dark_50.png
+  title: /img/logo_small.png
+  title_tiny: /img/logo_tiny.png 
+  watermark: /img/watermark.png
+  watermark_tiny: /img/watermark_tiny.png
+email: shows@ska5280.com
+description: "The resource for Ska in Denver Colorado!"
+baseurl: ""
+url: "http://ska5280.com"
+twitter_username: ska5280
+
+# Build settings
+markdown: kramdown
+permalink: pretty
