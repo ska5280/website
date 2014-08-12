@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Ska5280 Reboot!"
+date:   2014-08-11 23:17:00
+categories: site news
+---
+
+We've had a little trouble keeping up with the site for the past few months. It was built on old technology that relied on too many moving pieces. The result was a very slow and unpleasant experience for people visiting the site.
+
+We've gotten rid of the "LAMP" architecture (Linux, Apache, MySQL, PHP) and moved to Linux, Nginx, PostgreSQL, Jekyll, and Node.js. The result should be a much more responsive website that won't take as much maintenance to keep up and running. This will give us more time to get to shows, take lots of photos, and keep this website up to date!
+
+We are definitely looking for help with the site, so if you want to help post shows, learn more about web development, or have some awesome photos from shows, [contact us!](mailto:shows@ska5280.com).
