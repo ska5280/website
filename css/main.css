@@ -31,14 +31,49 @@ body {
 .wrap:after { content:""; display:table; }
 .wrap:after { clear: both; }
 .wrap {
-  max-width: 800px;
-  padding: 0 30px;
+  padding: 0 40px;
   margin: 0 auto;
   zoom: 1;
 }
 
 /* Layout Styles */
 /* ----------------------------------------------------------*/
+.show-image {
+  max-width: 100%;
+}
+
+.show-list {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.show-list-row {
+  margin-right: 5px;
+  border-radius: 15px;
+  margin-left: -35px;
+}
+.show-list-row:nth-child(odd) {
+  background-color: rgb(232,232,232);
+  background-color: rgba(0,0,0,.025);
+}
+.show-list-row:nth-child(odd):hover {
+  background-color: rgba(0,0,0,.15);
+  background-color: rgb(202,202,202);
+}
+.show-list-row:nth-child(even) {
+  background-color: rgb(214,214,214);
+  background-color: rgba(0,0,0,.1);
+}
+.show-list-row:nth-child(even):hover {
+  background-color: rgb(202,202,202);
+  background-color: rgba(0,0,0,.15);
+}
+#truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .navbar-brand,
 .navbar-nav li a {
     line-height: 70px;
