@@ -7,6 +7,8 @@ type: Shows
   <h4><a href="/shows">&laquo; Back to show list</a></h4>
 
   <header class="post-header">
+    <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }})</p>
+    <div class="row"><div class="col-sm-6 col-lg-6">
     {% assign bands = page.show.bands | split:"," %}
     {% for band in bands %}
       {% assign link = band %}
@@ -20,19 +22,40 @@ type: Shows
       {% if forloop.first %}
         <h1>{{ link }}</h1>
         {% if forloop.last == false%}
-          <h4>with
+        with<ul>
         {% endif %}
       {% else %}
-        {{ link }}{% if forloop.last == false%},{% else %}</h4>{% endif %}
+        <li>{{ link }}{% if forloop.last == true%}</ul>{% endif %}
       {% endif %}
     {% endfor %}
-    <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }})</p>
+  </div><div class="col-sm-6 col-lg-6">
+    <img class="show-image" src="{{page.show.image}}" />
+  </div></div>
   </header>
 
   <article class="post-content">
   {{ content }}
-  <img src="{{page.show.image}}" />
-  <hr><ul>
+
+  {% assign venue_info = page.show.venue %}
+  {% for post in site.posts %}
+    {% if post.categories contains 'venue' %}
+      {% if page.show.venue contains post.venue.name %}
+        {% assign venue_info = "<a href='" | append: post.url | append: "'>" | append: page.show.venue | append: "</a><ul>" %}
+        {% if post.venue.address %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.address | append: "</li>" %}{% endif %}
+        {% if post.venue.city %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.city | append: "</li>" %}{% endif %}
+        {% if post.venue.state %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.state | append: "</li>" %}{% endif %}
+        {% if post.venue.zip %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.zip | append: "</li>" %}{% endif %}
+        {% if post.venue.phone %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.phone | append: "</li>" %}{% endif %}
+        {% assign venue_info = venue_info | append: "</ul>" %}
+      {% if post.venue.lat and post.venue.lon %}<a href="{{osm_link}}"><img src="https://b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C({{post.venue.lon}},{{post.venue.lat}})/{{post.venue.lon}},{{post.venue.lat}},15/400x300.png" /></a>{% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  <ul>
+    <li>Location: {{ venue_info }}</li>
+  </ul>
+
+  <ul>
     {% for field in page.show %}
       <li>{{ field[0] }}: {{ field[1] }}</li>
     {% endfor %}
