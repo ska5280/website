@@ -3,6 +3,7 @@ layout: default
 order: 3
 title: Photos
 permalink: /photos/
+navbar: true
 ---
 
 # ![{{ site.title }}]({{ site.logo.title_tiny}})
