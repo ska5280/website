@@ -3,6 +3,7 @@ layout: default
 order: 4
 title: About
 permalink: /about/
+navbar: true
 ---
 ### About
 * If you’re interested in getting your show promoted, or looking to book a show, send an email to [shows@ska5280.com](mailto:shows@ska5280).
