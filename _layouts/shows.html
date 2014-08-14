@@ -6,10 +6,31 @@ layout: default
 
   {{ content }}
 
-  <ul class="posts">
+  <ul class="posts show-list">
     {% for post in site.posts %}
       {% if post.categories contains 'shows' %}
-        <li>{{ post.show.doors | date: "%b %-d, %Y" }} - <a href="{{ post.url | prepend: site.baseurl }}">{{ post.show.bands }}</a> - {{ post.show.venue }} - ({{ post.show.tickets_adv }})</li>
+        <div class="row show-list-row">
+          <div class="col-sm-2 col-lg-2">
+            {{ post.show.doors | date: "%b %-d, %Y" }}
+          </div>
+          <div class="col-sm-7 col-lg-7">
+            {% assign bands = post.show.bands | split:"," %}
+            <a href="{{ post.url | prepend: site.baseurl }}">{% if post.show.name %}{{post.show.name}}: {% endif %}
+              {% for band in bands %}
+                {{ band }}{% if forloop.first %}
+                  <div id="truncate">&nbsp;&nbsp;w/
+                    {% elsif forloop.last == false %},{% endif %}
+                {% if forloop.last %}</div>{% endif %}
+              {% endfor %}
+            </a>
+          </div>
+          <div class="col-sm-2 col-lg-2">
+            {{ post.show.venue }}
+          </div>  
+          <div class="col-sm-1 col-lg-1">
+            {{ post.show.tickets_adv }}
+          </div>
+        </div>
       {% endif %}
     {% endfor %}
   </posts>
