@@ -1,10 +1,8 @@
 ---
-layout: default
+layout: shows
 order: 2
 title: Shows
 permalink: /shows/
+navbar: true
 ---
-
-# ![{{ site.title }}]({{ site.logo.title_tiny}})
-
-## Shows for {{ site.title }} is in the works, please find us on [twitter](https://twitter.com/ska5280) for more information!
+# ![{{ site.title }}]({{ site.logo.title_tiny}}) Shows:
