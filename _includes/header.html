@@ -17,13 +17,15 @@
           <ul class="nav navbar-nav">
             {% assign sorted_pages = site.pages | sort:"order" %}
             {% for loop_page in sorted_pages %}
-              {% if loop_page.title %}
-                <li
-                  {% if page.title == loop_page.title or page.type == loop_page.title %}
-                    class="active"
-                  {% endif %}
-                  >
-                <a href="{{ loop_page.url | prepend: site.baseurl }}">{{ loop_page.title }}</a></li>
+              {% if loop_page.navbar == true %}
+                {% if loop_page.title %}
+                  <li
+                    {% if page.title == loop_page.title or page.type == loop_page.title %}
+                      class="active"
+                    {% endif %}
+                    >
+                  <a href="{{ loop_page.url | prepend: site.baseurl }}">{{ loop_page.title }}</a></li>
+                {% endif %}
               {% endif %}
             {% endfor %}
           </ul>
