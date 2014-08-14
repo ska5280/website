@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {{ content }}
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.categories contains 'shows' %}
+        {{ post.show.doors | date: "%b %-d, %Y" }} - <a href="{{ post.url | prepend: site.baseurl }}">{{ post.show.bands }}</a> - {{ post.show.venue }} - ({{ post.show.tickets_adv }})
+      {% endif %}
+    {% endfor %}
+  </posts>
+</div>

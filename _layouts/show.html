@@ -1,0 +1,42 @@
+---
+layout: default
+type: Show
+---
+<div class="post">
+
+  <h4><a href="/shows">&laquo; Back to show list</a></h4>
+
+  <header class="post-header">
+    {% assign bands = page.show.bands | split:"," %}
+    {% for band in bands %}
+      {% assign link = band %}
+      {% for post in site.posts %}
+        {% if post.categories contains 'band' %}
+          {% if band contains post.title %}
+            {% assign link = "<a href='" | append: post.url | append: "'>" | append: band | append: "</a>" %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if forloop.first %}
+        <h1>{{ link }}</h1>
+        {% if forloop.last == false%}
+          <h4>with
+        {% endif %}
+      {% else %}
+        {{ link }}{% if forloop.last == false%},{% else %}</h4>{% endif %}
+      {% endif %}
+    {% endfor %}
+    <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }})</p>
+  </header>
+
+  <article class="post-content">
+  {{ content }}
+  <img src="{{page.show.image}}" />
+  <hr><ul>
+    {% for field in page.show %}
+      <li>{{ field[0] }}: {{ field[1] }}</li>
+    {% endfor %}
+  </ul>
+  </article>
+
+</div>

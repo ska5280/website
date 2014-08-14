@@ -2,7 +2,7 @@
 layout: post
 title:  "Ska5280 Reboot!"
 date:   2014-08-11 23:17:00
-categories: site news
+categories: blog
 ---
 
 We've had a little trouble keeping up with the site for the past few months. It was built on old technology that relied on too many moving pieces. The result was a very slow and unpleasant experience for people visiting the site.
