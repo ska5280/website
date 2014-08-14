@@ -11,7 +11,5 @@ show:
   tickets_adv: $15
   tickets_door: $18
   tickets_link: http://www.ticketweb.com/t3/sale/SaleEventDetail?dispatch=loadSelectionData&eventId=5049215&pl=marquis
-  image: http://www.themarquistheatre.com/images/artists/artist17657/the_pietasters.jpg
+  image: http://upload.wikimedia.org/wikipedia/commons/d/dc/PietastersLive.jpg
 ---
-
-Welcome back the Pietasters!
