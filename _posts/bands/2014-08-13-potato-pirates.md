@@ -13,7 +13,4 @@ band:
   phone: 303-292-0805
   osm_link: https://www.openstreetmap.org/node/1152966769
   website: http://www.themarquistheatre.com/
-
 ---
-
-Welcome back the Pietasters!
