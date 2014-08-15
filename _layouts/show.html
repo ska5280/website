@@ -47,14 +47,21 @@ type: Shows
         {% if post.venue.zip %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.zip | append: "</li>" %}{% endif %}
         {% if post.venue.phone %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.phone | append: "</li>" %}{% endif %}
         {% assign venue_info = venue_info | append: "</ul>" %}
-      {% if post.venue.lat and post.venue.lon %}<a href="{{osm_link}}"><img src="https://b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C({{post.venue.lon}},{{post.venue.lat}})/{{post.venue.lon}},{{post.venue.lat}},15/400x300.png" /></a>{% endif %}
+        {% if post.venue.lat and post.venue.lon %}
+          {% assign location_map = "<a href='" | append: osm_link | append: "'><img src='//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C(" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ")/" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ",15/300x225.png' /></a>" %}
+        {% endif %}
       {% endif %}
     {% endif %}
   {% endfor %}
-  <ul>
-    <li>Location: {{ venue_info }}</li>
-  </ul>
 
+    <div class="row">
+      <div class="col-sm-6 col-lg-6">
+        <ul>Location: {{ venue_info }}</ul>
+      </div>
+      <div class="col-sm-6 col-lg-6">
+        {{ location_map }}
+      </div>
+    </div>
   <ul>
     {% for field in page.show %}
       <li>{{ field[0] }}: {{ field[1] }}</li>
