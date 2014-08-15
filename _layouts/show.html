@@ -7,7 +7,7 @@ type: Shows
   <h4><a href="/shows">&laquo; Back to show list</a></h4>
 
   <header class="post-header">
-    <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }})</p>
+    <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }}{% if page.show.show_time %}, Show: {{ page.show.show_time | date: "%-I:%M %p"}}{% endif %})</p>
     <div class="row"><div class="col-sm-6 col-lg-6">
     {% assign bands = page.show.bands | split:"," %}
     {% for band in bands %}
@@ -28,6 +28,14 @@ type: Shows
         <li>{{ link }}{% if forloop.last == true%}</ul>{% endif %}
       {% endif %}
     {% endfor %}
+    <hr/>
+    {% if page.show.ages %}Ages: {{page.show.ages}}{% endif %}
+    <li>Tickets:</li><ul>
+      {% if page.show.tickets_adv %}<li>In Advance: {{page.show.tickets_adv}}</li>{% endif %}
+      {% if page.show.tickets_door %}<li>At the Door: {{page.show.tickets_door}}</li>{% endif %}
+      {% if page.show.tickets_link %}<a href="{{page.show.tickets_link}}" class="btn btn-sm btn-success">Buy Tickets</a>{% endif %}
+    </ul>
+  {% if page.show.more_info %}<a href="{{page.show.more_info}}">More Information...</a>{% endif %}
   </div><div class="col-sm-6 col-lg-6">
     <img class="show-image" src="{{page.show.image}}" />
   </div></div>
@@ -40,15 +48,15 @@ type: Shows
   {% for post in site.posts %}
     {% if post.categories contains 'venue' %}
       {% if page.show.venue contains post.venue.name %}
-        {% assign venue_info = "<a href='" | append: post.url | append: "'>" | append: page.show.venue | append: "</a><ul>" %}
-        {% if post.venue.address %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.address | append: "</li>" %}{% endif %}
-        {% if post.venue.city %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.city | append: "</li>" %}{% endif %}
-        {% if post.venue.state %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.state | append: "</li>" %}{% endif %}
-        {% if post.venue.zip %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.zip | append: "</li>" %}{% endif %}
-        {% if post.venue.phone %}{% assign venue_info = venue_info | append: "<li>" | append: post.venue.phone | append: "</li>" %}{% endif %}
-        {% assign venue_info = venue_info | append: "</ul>" %}
+        {% assign venue_info = "<a href='" | append: post.url | append: "'>" | append: page.show.venue | append: "</a>" %}
+        {% if post.venue.address %}{% assign venue_address = post.venue.address %}{% endif %}
+        {% if post.venue.city %}{% assign venue_address = venue_address | append: "</br>" | append: post.venue.city %}{% endif %}
+        {% if post.venue.state %}{% assign venue_address = venue_address | append: ", " | append: post.venue.state %}{% endif %}
+        {% if post.venue.zip %}{% assign venue_address = venue_address | append: " " | append: post.venue.zip %}{% endif %}
+        {% if post.venue.phone %}{% assign venue_phone = post.venue.phone %}{% endif %}
+        {% if post.venue.website %}{% assign venue_website = "<a href='" | append: post.venue.website | append: "'>" | append: page.show.venue | append: "'s Website</a>" %}{% endif %}
         {% if post.venue.lat and post.venue.lon %}
-          {% assign location_map = "<a href='" | append: osm_link | append: "'><img src='//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C(" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ")/" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ",15/300x225.png' /></a>" %}
+          {% assign location_map = "<a href='" | append: post.venue.osm_link | append: "'><img src='//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C(" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ")/" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ",15/300x225.png' /></a>" %}
         {% endif %}
       {% endif %}
     {% endif %}
@@ -56,17 +64,16 @@ type: Shows
 
     <div class="row">
       <div class="col-sm-6 col-lg-6">
-        <ul>Location: {{ venue_info }}</ul>
+        Location: {{ venue_info }}<ul>
+          {% if venue_address %}<li>{{venue_address}}</li>{% endif %}
+          {% if venue_phone %}<li>{{venue_phone}}</li>{% endif %}
+          {% if venue_website %}<li>{{venue_website}}</li>{% endif %}
+        </ul>
       </div>
       <div class="col-sm-6 col-lg-6">
         {{ location_map }}
       </div>
     </div>
-  <ul>
-    {% for field in page.show %}
-      <li>{{ field[0] }}: {{ field[1] }}</li>
-    {% endfor %}
-  </ul>
   </article>
 
 </div>
