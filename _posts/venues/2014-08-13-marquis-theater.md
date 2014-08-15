@@ -17,5 +17,3 @@ venue:
   website: http://www.themarquistheatre.com/
 
 ---
-
-Welcome back the Pietasters!
