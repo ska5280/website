@@ -7,7 +7,8 @@ layout: default
   {{ content }}
 
   <ul class="posts show-list">
-    {% for post in site.posts %}
+    {% assign sorted_posts = site.posts | sort:"date" %}
+    {% for post in sorted_posts %}
       {% if post.categories contains 'shows' %}
         <div class="row show-list-row">
           <div class="col-sm-2 col-lg-2">
@@ -17,10 +18,10 @@ layout: default
             {% assign bands = post.show.bands | split:"," %}
             <a href="{{ post.url | prepend: site.baseurl }}">{% if post.show.name %}{{post.show.name}}: {% endif %}
               {% for band in bands %}
-                {{ band }}{% if forloop.first %}
-                  <div id="truncate">&nbsp;&nbsp;w/
+                {{ band }}{% if forloop.first and forloop.last == false %}
+                  <div id="truncate">&nbsp;&nbsp;w\
                     {% elsif forloop.last == false %},{% endif %}
-                {% if forloop.last %}</div>{% endif %}
+                {% if forloop.last and forloop.first == false %}</div>{% endif %}
               {% endfor %}
             </a>
           </div>
