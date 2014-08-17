@@ -5,7 +5,7 @@ categories: shows
 
 show:
   venue: Bluebird Theater
-  bands: The Slackers
+  bands: The Slackers, Kult of Skaro
   doors: 2014-10-21 19:00
   show_time: 2014-10-21 20:00
   ages: 16 & Over
