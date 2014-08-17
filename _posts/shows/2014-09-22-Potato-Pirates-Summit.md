@@ -1,6 +1,6 @@
 ---
 layout: show
-date:   2014-09-22 19:00:00
+date:   2014-09-22 19:00
 categories: shows
 
 show:
