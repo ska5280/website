@@ -9,12 +9,12 @@ type: Shows
   <header class="post-header">
     <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }}{% if page.show.show_time %}, Show: {{ page.show.show_time | date: "%-I:%M %p"}}{% endif %})</p>
     <div class="row"><div class="col-sm-6 col-lg-6">
-    {% assign bands = page.show.bands | split:"," %}
+    {% assign bands = page.show.bands | split:", " %}
     {% for band in bands %}
       {% assign link = band %}
       {% for post in site.posts %}
         {% if post.categories contains 'band' %}
-          {% if band contains post.title %}
+          {% if post.title == band %}
             {% assign link = "<a href='" | append: post.url | append: "'>" | append: band | append: "</a>" %}
           {% endif %}
         {% endif %}
@@ -47,7 +47,7 @@ type: Shows
   {% assign venue_info = page.show.venue %}
   {% for post in site.posts %}
     {% if post.categories contains 'venue' %}
-      {% if page.show.venue contains post.venue.name %}
+      {% if page.show.venue == post.venue.name %}
         {% assign venue_info = "<a href='" | append: post.url | append: "'>" | append: page.show.venue | append: "</a>" %}
         {% if post.venue.address %}{% assign venue_address = post.venue.address %}{% endif %}
         {% if post.venue.city %}{% assign venue_address = venue_address | append: "</br>" | append: post.venue.city %}{% endif %}
