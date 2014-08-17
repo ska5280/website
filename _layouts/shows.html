@@ -9,7 +9,9 @@ layout: default
   <ul class="posts show-list">
     {% assign sorted_posts = site.posts | sort:"date" %}
     {% for post in sorted_posts %}
-      {% if post.categories contains 'shows' %}
+    {% assign today = 'now' | date: "%Y%m%d" %}
+    {% assign post_date = post.date | date: "%Y%m%d" %}
+    {% if post.categories contains 'shows' and today <= post_date %}
         <div class="row show-list-row">
           <div class="col-sm-2 col-lg-2">
             {{ post.show.doors | date: "%b %-d, %Y" }}
