@@ -11,27 +11,29 @@ layout: default
     {% for post in sorted_posts %}
     {% assign today = 'now' | date: "%Y%m%d" %}
     {% assign post_date = post.date | date: "%Y%m%d" %}
-    {% if post.categories contains 'shows' and today <= post_date %}
-        <div class="row show-list-row">
+    {% if post.categories contains 'shows' and today | minus: 2 <= post_date %}
+      <div class="row show-list-row" removeDate="{{post_date}}">
           <div class="col-sm-2 col-lg-2">
             {{ post.show.doors | date: "%b %-d, %Y" }}
           </div>
-          <div class="col-sm-7 col-lg-7">
+          <div class="col-sm-6 col-lg-5">
             {% assign bands = post.show.bands | split:"," %}
             <a href="{{ post.url | prepend: site.baseurl }}">{% if post.show.name %}{{post.show.name}}: {% endif %}
               {% for band in bands %}
                 {{ band }}{% if forloop.first and forloop.last == false %}
-                  <div id="truncate">&nbsp;&nbsp;w\
+                  <div id="truncate">&nbsp;&nbsp;w/
                     {% elsif forloop.last == false %},{% endif %}
                 {% if forloop.last and forloop.first == false %}</div>{% endif %}
               {% endfor %}
             </a>
           </div>
-          <div class="col-sm-2 col-lg-2">
+          <div class="col-sm-2 col-lg-3">
             {{ post.show.venue }}
           </div>  
-          <div class="col-sm-1 col-lg-1">
-            {{ post.show.tickets_adv }}
+          <div class="col-sm-2 col-lg-2">
+            {% if post.show.tickets_adv %}{{ post.show.tickets_adv }}{% endif %}
+            {% if post.show.tickets_adv and post.show.tickets_door %}/{% endif %}
+            {% if post.show.tickets_door %}{{ post.show.tickets_door }}{% endif %}
           </div>
         </div>
       {% endif %}
