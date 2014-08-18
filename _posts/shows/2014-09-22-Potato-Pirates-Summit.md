@@ -5,7 +5,7 @@ categories: shows
 
 show:
   venue: Moon Room at Summit Music Hall
-  bands: Potato Pirates, Left Alone, The Repercussions, The Rotten Blue Menace
+  bands: The Potato Pirates, Left Alone, The Repercussions, The Rotten Blue Menace
   doors: 2014-09-22 19:00
   ages: All Ages
   tickets_adv: $8
