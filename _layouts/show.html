@@ -20,9 +20,9 @@ type: Shows
         {% endif %}
       {% endfor %}
       {% if forloop.first %}
-        <h1>{{ link }}</h1>
+      <h1 class="show-headliner">{{ link }} </h1>with<br/>
         {% if forloop.last == false%}
-        with<ul>
+        <ul class="show-openers">
         {% endif %}
       {% else %}
         <li>{{ link }}{% if forloop.last == true%}</ul>{% endif %}
