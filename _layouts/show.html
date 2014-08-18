@@ -50,7 +50,7 @@ type: Shows
       {% if page.show.venue == post.venue.name %}
         <a href="{{post.url}}">{{post.venue.name}}</a>
         {% assign venue = post.venue %}
-	{% include venue_section.html %}
+	{% include venue-section.html %}
       {% endif %}
     {% endif %}
   {% endfor %}

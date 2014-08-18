@@ -1,0 +1,25 @@
+<!-- requires show_date, show_url, show -->
+<div class="row show-list-row" removeDate="{{show_date}}">
+  <div class="col-sm-2 col-lg-2">
+    {{ show.doors | date: "%b %-d, %Y" }}
+  </div>
+  <div class="col-sm-6 col-lg-5">
+    {% assign bands = show.bands | split:"," %}
+    <a href="{{ show_url | prepend: site.baseurl }}">{% if show.name %}{{show.name}}: {% endif %}
+      {% for band in bands %}
+        {{ band }}{% if forloop.first and forloop.last == false %}
+          <div id="truncate">&nbsp;&nbsp;w/
+            {% elsif forloop.last == false %},{% endif %}
+        {% if forloop.last and forloop.first == false %}</div>{% endif %}
+      {% endfor %}
+    </a>
+  </div>
+  <div class="col-sm-2 col-lg-3">
+    {{ show.venue }}
+  </div>  
+  <div class="col-sm-2 col-lg-2">
+    {% if show.tickets_adv %}{{ show.tickets_adv }}{% endif %}
+    {% if show.tickets_adv and show.tickets_door %}/{% endif %}
+    {% if show.tickets_door %}{{ show.tickets_door }}{% endif %}
+  </div>
+</div>
