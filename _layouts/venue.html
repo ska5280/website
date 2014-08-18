@@ -4,7 +4,7 @@ type: Shows
 ---
 <div class="post">
 
-  <h4><a href="#" onclick="window.history.back();return false;"><&laquo; Back</a></h4>
+  <h4><a href="#" onclick="window.history.back();return false;">&laquo; Back</a></h4>
 
   <header class="post-header">
     <h1>{{page.venue.name}}</h1>
@@ -18,19 +18,20 @@ type: Shows
 
 
   <div class="home">
+    <h4>Upcoming {{page.venue.name}} Shows:</h4>
     <ul class="posts show-list">
       {% assign sorted_posts = site.posts | sort:"date" %}
       {% for post in sorted_posts %}
         {% assign today = 'now' | date: "%Y%m%d" %}
         {% assign post_date = post.date | date: "%Y%m%d" %}
-        {% if post.categories contains 'shows' and today | minus: 2 <= post_date and post.venue == page.venue.name %}
+        {% if post.categories contains 'shows' and today | minus: 1 <= post_date and post.show.venue == page.venue.name %}
           {% assign show_date = post_date %}
           {% assign show_url = post.url %}
           {% assign show = post.show %}
           {% include show-list-row.html %}
         {% endif %}
       {% endfor %}
-    </posts>
+    </ul>
   </div>
 </div>
 
