@@ -1,0 +1,24 @@
+{% assign venue_info = "<a href='" | append: post.url | append: "'>" | append: page.show.venue | append: "</a>" %}
+{% if post.venue.address %}{% assign venue_address = post.venue.address %}{% endif %}
+{% if post.venue.city %}{% assign venue_address = venue_address | append: "</br>" | append: post.venue.city %}{% endif %}
+{% if post.venue.state %}{% assign venue_address = venue_address | append: ", " | append: post.venue.state %}{% endif %}
+{% if post.venue.zip %}{% assign venue_address = venue_address | append: " " | append: post.venue.zip %}{% endif %}
+{% if post.venue.phone %}{% assign venue_phone = post.venue.phone %}{% endif %}
+{% if post.venue.email %}{% assign venue_email = post.venue.email %}{% endif %}
+{% if post.venue.website %}{% assign venue_website = "<a href='" | append: post.venue.website | append: "'>" | append: page.show.venue | append: "'s Website</a>" %}{% endif %}
+{% if post.venue.lat and post.venue.lon %}
+  {% assign location_map = "<a href='//www.google.com/maps/place/" | append: post.venue.address | append: ',+' | append: post.venue.city | append: ',+' | append: post.venue.state | append: ',+'| append: post.venue.zip | append: "'><img src='//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C(" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ")/" | append: post.venue.lon | append: "," | append: post.venue.lat | append: ",15/300x225.png' /></a>" %}
+{% endif %}
+<div class="row">
+  <div class="col-sm-6 col-lg-6">
+    Location: {{ venue_info }}<ul>
+      {% if venue_address %}<li>{{venue_address}}</li>{% endif %}
+      {% if venue_phone %}<li>{{venue_phone}}</li>{% endif %}
+      {% if venue_email %}<li><a href="mailto:{{venue_email}}">{{venue_email}}</a></li>{% endif %}
+      {% if venue_website %}<li>{{venue_website}}</li>{% endif %}
+    </ul>
+  </div>
+  <div class="col-sm-6 col-lg-6">
+    {{ location_map }}
+  </div>
+</div>

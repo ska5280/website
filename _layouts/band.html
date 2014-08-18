@@ -4,9 +4,11 @@ type: Shows
 ---
 <div class="post">
 
-  <h4><a href="/shows">&laquo; Back to show list</a></h4>
+  <h4><a href="#" onclick="window.history.back();return false;"><&laquo; Back</a></h4>
 
   <header class="post-header">
+    <h1>{{page.venue.name}}</h1>
+
     <p class="meta">{{ page.show.doors | date: "%B %-d, %Y" }} (Doors: {{ page.show.doors | date: "%-I:%M %p" }}{% if page.show.show_time %}, Show: {{ page.show.show_time | date: "%-I:%M %p"}}{% endif %})</p>
     <div class="row"><div class="col-sm-6 col-lg-6">
     {% assign bands = page.show.bands | split:", " %}
