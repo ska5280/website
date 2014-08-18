@@ -75,6 +75,13 @@ body {
   text-overflow: ellipsis;
 }
 
+.show-headliner{
+  display: inline;
+}
+.show-openers{
+  margin-top: 0.5em;
+}
+
 .navbar-brand,
 .navbar-nav li a {
     line-height: 70px;
