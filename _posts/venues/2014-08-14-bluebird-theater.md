@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: venue 
 title:  "Bluebird Theater"
 date:   2014-08-14 22:24
 categories: venue
+permalink: /venue/bluebird-theater
 
 venue:
   name: "Bluebird Theater"

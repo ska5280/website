@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: venue 
 title:  "Marquis Theater"
 date:   2014-08-11 23:17:00
 categories: venue
+permalink: /venue/marquis-theater
 
 venue:
   name: "Marquis Theater"

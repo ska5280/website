@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: venue
 title:  "Merchant's Mile High Saloon"
 date:   2014-08-11 23:17:00
 categories: venue
+permalink: /venue/merchants-mile-high-saloon
 
 venue:
   name: "Merchant's Mile High Saloon"

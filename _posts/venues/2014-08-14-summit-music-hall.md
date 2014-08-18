@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: venue 
 title:  "Summit Music Hall"
 date:   2014-08-14 22:24
 categories: venue
+permalink: /venue/summit-music-hall
 
 venue:
   name: "Summit Music Hall"

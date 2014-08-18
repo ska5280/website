@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: venue 
 title:  "Seventh Circle Music Collective"
 date:   2014-08-14 22:24
 categories: venue
+permalink: /venue/seventh-circle-music-collective
 
 venue:
   name: "Seventh Circle Music Collective"
