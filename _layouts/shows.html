@@ -9,7 +9,7 @@ layout: default
     {% for post in sorted_posts %}
       {% assign today = 'now' | date: "%Y%m%d" %}
       {% assign post_date = post.date | date: "%Y%m%d" %}
-      {% if post.categories contains 'shows' and today | minus: 2 <= post_date %}
+      {% if post.categories contains 'shows' and today | minus: 1 <= post_date %}
         {% assign show_date = post_date %}
         {% assign show_url = post.url %}
         {% assign show = post.show %}
