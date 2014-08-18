@@ -1,0 +1,25 @@
+<item>
+  <title>
+    {% if feed_post.show.name %}
+      {{feed_post.show.name}}
+    {% else %}
+      {{ feed_post.show.bands | split: ", " | first }}
+    {% endif %} -
+    {{ feed_post.show.doors | date: "%B %-d, %Y"| xml_escape }} -
+    {{ feed_post.show.venue | xml_escape }}
+  </title>
+  <description>
+    {{ feed_post.show.doors | date: "%B %-d, %Y"| xml_escape }} -
+    {{ feed_post.show.bands | xml_escape }} -
+    {{ feed_post.show.venue | xml_escape }} -
+    {% if show.tickets_adv %}{{ show.tickets_adv }}{% endif %}
+    {% if show.tickets_adv and show.tickets_door %}/{% endif %}
+    {% if show.tickets_door %}{{ show.tickets_door }}{% endif %}
+  </description>
+  <pubDate>{{ feed_post.date | date_to_rfc822 }}</pubDate>
+  <link>{{ feed_post.url | prepend: site.baseurl | prepend: site.url }}</link>
+  <guid isPermaLink="true">{{ feed_post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+  {% for tag in feed_post.tags %}
+  <category>{{ tag | xml_escape }}</category>
+  {% endfor %}
+</item>

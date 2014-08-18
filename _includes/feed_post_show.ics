@@ -1,0 +1,16 @@
+BEGIN:VEVENT
+CREATED:20140818T053928Z
+?CREATED:{{ feed_post.date | date_to_rfc5545 }}
+UID:1B032AE6-21CC-4ACF-999C-849320E06398
+URL;VALUE=URI:{{ feed_post.url | prepend: site.baseurl | prepend: site.url }}
+DTEND;TZID=America/Denver:20140826T100000
+?DTEND;TZIP={{ feed_post.date | date_to_rfc5545 }}
+SUMMARY:{{feed_post.content}}
+DTSTART;TZID=America/Denver:20140826T090000
+?DTSTART;TZID=America/Denver:{{ feed_post.date | date_to_rfc5545 }}
+DTSTAMP:20140818T054159Z
+?DTSTAMP:{{ feed_post.date | date_to_rfc5545 }}
+?LOCATION:NEED THIS
+SEQUENCE:6
+DESCRIPTION:THIS TOO
+END:VEVENT

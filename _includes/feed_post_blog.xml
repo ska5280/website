@@ -1,0 +1,10 @@
+<item>
+  <title>{{ feed_post.title | xml_escape }}</title>
+  <description>{{ feed_post.content | xml_escape }}</description>
+  <pubDate>{{ feed_post.date | date_to_rfc822 }}</pubDate>
+  <link>{{ feed_post.url | prepend: site.baseurl | prepend: site.url }}</link>
+  <guid isPermaLink="true">{{ feed_post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+  {% for tag in feed_post.tags %}
+  <category>{{ tag | xml_escape }}</category>
+  {% endfor %}
+</item>
