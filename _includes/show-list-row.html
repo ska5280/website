@@ -1,4 +1,3 @@
-<!-- requires show_date, show_url, show -->
 <div class="row show-list-row" removeDate="{{show_date}}">
   <div class="col-sm-2 col-lg-2">
     {{ show.doors | date: "%b %-d, %Y" }}
@@ -15,11 +14,18 @@
     </a>
   </div>
   <div class="col-sm-2 col-lg-3">
-    {{ show.venue }}
-  </div>  
+    {% for show_post in site.posts %}
+      {% if show_post.categories contains 'venue' %}
+        {% if show.venue == show_post.venue.name %}
+          <a href="{{show_post.url}}">{{show_post.venue.name}}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
   <div class="col-sm-2 col-lg-2">
     {% if show.tickets_adv %}{{ show.tickets_adv }}{% endif %}
     {% if show.tickets_adv and show.tickets_door %}/{% endif %}
     {% if show.tickets_door %}{{ show.tickets_door }}{% endif %}
+    {% if show.tickets_link %}<br/><a href="{{show.tickets_link}}" class="btn btn-xs btn-success">Buy Tickets</a>{% endif %}
   </div>
 </div>
