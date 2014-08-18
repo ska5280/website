@@ -1,24 +1,24 @@
-{% assign venue_info = "<a href='" | append: venue_url | append: "'>" | append: venue.name | append: "</a>" %}
 {% if venue.address %}{% assign venue_address = venue.address %}{% endif %}
 {% if venue.city %}{% assign venue_address = venue_address | append: "</br>" | append: venue.city %}{% endif %}
 {% if venue.state %}{% assign venue_address = venue_address | append: ", " | append: venue.state %}{% endif %}
 {% if venue.zip %}{% assign venue_address = venue_address | append: " " | append: venue.zip %}{% endif %}
-{% if venue.phone %}{% assign venue_phone = venue.phone %}{% endif %}
-{% if venue.email %}{% assign venue_email = venue.email %}{% endif %}
-{% if venue.website %}{% assign venue_website = "<a href='" | append: venue.website | append: "'>" | append: venue.name | append: "'s Website</a>" %}{% endif %}
-{% if venue.lat and venue.lon %}
-  {% assign location_map = "<a href='//www.google.com/maps/place/" | append: venue.address | append: ',+' | append: venue.city | append: ',+' | append: venue.state | append: ',+'| append: venue.zip | append: "'><img src='//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C(" | append: venue.lon | append: "," | append: venue.lat | append: ")/" | append: venue.lon | append: "," | append: venue.lat | append: ",15/300x225.png' /></a>" %}
+
 {% endif %}
 <div class="row">
   <div class="col-sm-6 col-lg-6">
-    Location: {{ venue_info }}<ul>
+    <ul>
       {% if venue_address %}<li>{{venue_address}}</li>{% endif %}
-      {% if venue_phone %}<li>{{venue_phone}}</li>{% endif %}
-      {% if venue_email %}<li><a href="mailto:{{venue_email}}">{{venue_email}}</a></li>{% endif %}
-      {% if venue_website %}<li>{{venue_website}}</li>{% endif %}
+      {% if venue.phone %}<li>{{venue.phone}}</li>{% endif %}
+      {% if venue.email %}<li><a href="mailto:{{venue.email}}">{{venue.email}}</a></li>{% endif %}
+      {% if venue.website %}<li><a href="{{venue.website}}">{{venue.name}}'s Website</a></li>{% endif %}
     </ul>
   </div>
   <div class="col-sm-6 col-lg-6">
-    {{ location_map }}
+
+{% if venue.lat and venue.lon %}
+  <a href="//www.google.com/maps/place/{{venue.address}},+{{venue.city}},+{{venue.state}},+{{venue.zip}}">
+    <img src="//b.tiles.mapbox.com/v3/examples.map-i87786ca/pin-m-music+48C({{venue.lon}},{{venue.lat}})/{{venue.lon}},{{venue.lat}},15/300x225.png"/>
+  </a>
+<% endif %>
   </div>
 </div>

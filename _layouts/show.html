@@ -48,8 +48,8 @@ type: Shows
   {% for post in site.posts %}
     {% if post.categories contains 'venue' %}
       {% if page.show.venue == post.venue.name %}
+        <a href="{{post.url}}">{{post.venue.name}}</a>
         {% assign venue = post.venue %}
-        {% assign venue_url = post.url %}
 	{% include venue_section.html %}
       {% endif %}
     {% endif %}
