@@ -1,16 +1,13 @@
 ---
-layout: post
-title:  "Potato Pirates"
+layout: band
+title:  "The Potato Pirates"
 date:   2014-08-11 23:17:00
 categories: band
+permalink: /band/the-potato-pirates/
 
 band:
-  name: "Potato Pirates"
-  address: "2009 Larimer Street"
-  city: Denver
-  state: Colorado
-  zip: 80205
-  phone: 303-292-0805
-  osm_link: https://www.openstreetmap.org/node/1152966769
+  name: "The Potato Pirates"
+  alt_names: "Potato Pirates"
   website: http://www.themarquistheatre.com/
 ---
+* Booking Agent: pirateslife916@yahoo.com
