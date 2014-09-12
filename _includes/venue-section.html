@@ -2,6 +2,12 @@
 {% if venue.city %}{% assign venue_address = venue_address | append: "</br>" | append: venue.city %}{% endif %}
 {% if venue.state %}{% assign venue_address = venue_address | append: ", " | append: venue.state %}{% endif %}
 {% if venue.zip %}{% assign venue_address = venue_address | append: " " | append: venue.zip %}{% endif %}
+  {% if venue.name_full %}
+    {% assign venue_name = venue.name_full %}
+    {% else %}
+    {% assign venue_name = venue.name %}
+  {% endif  %}
+
 
 <div class="row">
   <div class="col-sm-6 col-lg-6">
@@ -9,7 +15,7 @@
       {% if venue_address %}<li>{{venue_address}}</li>{% endif %}
       {% if venue.phone %}<li>{{venue.phone}}</li>{% endif %}
       {% if venue.email %}<li><a href="mailto:{{venue.email}}">{{venue.email}}</a></li>{% endif %}
-      {% if venue.website %}<li><a href="{{venue.website}}">{{venue.name}}'s Website</a></li>{% endif %}
+      {% if venue.website %}<li><a href="{{venue.website}}">{{venue_name}}'s Website</a></li>{% endif %}
     </ul>
   </div>
   <div class="col-sm-6 col-lg-6">
