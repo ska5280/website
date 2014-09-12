@@ -5,4 +5,4 @@ title: Blog
 permalink: /blog/
 navbar: true
 ---
-# ![{{ site.title }}]({{ site.logo.title_tiny}}) Blog:
+# ![{{ site.title }}]({{ site.logo.title_tiny | prepend: site.baseurl}}) Blog:
