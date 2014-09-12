@@ -8,7 +8,7 @@ logo:
   watermark_tiny: /img/watermark_tiny.png
 email: shows@ska5280.com
 description: "The resource for Ska in Denver Colorado!"
-baseurl: ""
+baseurl: "http://ska5280.com"
 url: "http://ska5280.com"
 twitter_username: ska5280
 
