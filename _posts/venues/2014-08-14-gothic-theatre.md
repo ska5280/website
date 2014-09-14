@@ -3,7 +3,7 @@ layout: venue
 title:  "Gothic Theatre"
 date:   2014-08-14 22:24
 categories: venue
-permalink: /venue/bluebird-theater
+permalink: /venue/gothic-theatre
 
 venue:
   name: "Gothic Theatre"
