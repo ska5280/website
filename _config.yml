@@ -11,6 +11,7 @@ logo:
   watermark_tiny: /img/watermark_tiny.png
 email: shows@ska5280.com
 twitter_username: ska5280
+github_username: ska5280
 
 # Build settings
 markdown: kramdown
