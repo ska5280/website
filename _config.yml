@@ -11,6 +11,7 @@ description: "The resource for Ska in Denver Colorado!"
 baseurl: ""
 url: "http://ska5280.com"
 twitter_username: ska5280
+github_username: ska5280
 
 # Build settings
 markdown: kramdown
