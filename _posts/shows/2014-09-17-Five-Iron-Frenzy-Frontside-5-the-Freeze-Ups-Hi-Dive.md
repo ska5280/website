@@ -4,7 +4,7 @@ date:   2014-09-17 20:00
 categories: shows
 
 show:
-  venue: Hi-Dive
+  venue: hi-dive
   bands: Five Iron Frenzy, Frontside 5, the Freeze Ups
   doors: 2014-09-17 20:00
   ages: 21+
