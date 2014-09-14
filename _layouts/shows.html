@@ -10,6 +10,7 @@ layout: default
       {% assign today = 'now' | date: "%Y%m%d" %}
       {% assign yesterday = today | minus: 1 %}
       {% assign post_date = post.date | date: "%Y%m%d" %}
+      {% assign post_date = post_date | minus: 0 %}
       <li>raw post_date: {{post_date}}</li>
       {% if post.categories contains 'shows' and yesterday <= post_date %}
       <li>today: {{today}}</li>
