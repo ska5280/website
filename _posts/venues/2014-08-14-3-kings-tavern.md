@@ -3,7 +3,7 @@ layout: venue
 title:  "3 Kings Tavern"
 date:   2014-08-14 22:24
 categories: venue
-permalink: /venue/hi-dive
+permalink: /venue/3-kings-tavern
 
 venue:
   name: "3 Kings Tavern"
