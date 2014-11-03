@@ -5,7 +5,7 @@ categories: shows
 
 show:
   venue: Moon Room at Summit Music Hall
-  bands: Potato Pirates, The Bad Engrish, Violent Affair, Sniper 66, The Scandals
+  bands: The Potato Pirates, The Bad Engrish, Violent Affair, Sniper 66, The Scandals
   doors: 2014-11-12 19:00
   show_time: 2014-11-12 20:00
   ages: All Ages
