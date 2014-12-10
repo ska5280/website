@@ -7,7 +7,7 @@ show:
   venue: Ogden Theatre
   bands: Reel Big Fish, Less Than Jake, Authority Zero
   doors: 2015-01-15 18:30
-  show_time: 2015-02-28 19:30
+  show_time: 2015-01-15 19:30
   ages: 16+
   tickets_adv: $23.75
   tickets_door: $25.00
